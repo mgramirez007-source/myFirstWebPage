@@ -1,5 +1,5 @@
 /* ==========================================================
-   Perfil profesional — Fase 2: layout, cards y responsive
+   Perfil profesional — Fase 3: layout, cards, responsive y modo oscuro
    Autora: María Guadalupe Ramírez Cruz
    ========================================================== */
 
@@ -11,6 +11,10 @@
     --color-texto-suave: #6b6b80;
     --color-fondo: #faf8ff;
     --color-tarjeta: #ffffff;
+    --color-borde: #e6e1f2;
+    --color-hover: #f1ecfb;
+    --color-texto-etiqueta: #2b2b3a;
+    --color-texto-boton: #ffffff;
     --fuente: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --fuente-codigo: "Courier New", Courier, monospace;
     --sombra: 0 4px 12px rgba(43, 43, 58, 0.12);
@@ -88,6 +92,61 @@ a:hover {
     color: var(--color-primario);
 }
 
+/* ----- Toggle Switch de tema (base: W3Schools) ----- */
+.switch {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 52px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: var(--color-primario-claro);
+    transition: background-color 0.3s ease;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.slider.round {
+    border-radius: 28px;
+}
+
+.slider.round::before {
+    border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+    background-color: var(--color-primario);
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+.switch input:focus-visible + .slider {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 2px;
+}
+
 /* ----- Contenido principal ----- */
 /* Layout con Grid: sidebar + contenido principal */
 .layout {
@@ -133,7 +192,7 @@ main {
 
 section {
     padding: 2.5rem 0;
-    border-bottom: 1px solid #e6e1f2;
+    border-bottom: 1px solid var(--color-borde);
 }
 
 h1,
@@ -193,7 +252,7 @@ h1 {
     margin-top: 1rem;
     padding: 0.6rem 1.5rem;
     background-color: var(--color-primario);
-    color: #ffffff;
+    color: var(--color-texto-boton);
     text-decoration: none;
     font-weight: 600;
     border-radius: 999px;
@@ -201,7 +260,7 @@ h1 {
 
 .boton:hover {
     background-color: var(--color-texto);
-    color: #ffffff;
+    color: var(--color-texto-boton);
 }
 
 /* ----- Experiencia ----- */
@@ -237,6 +296,7 @@ h1 {
     background-color: var(--color-primario-claro);
     border-radius: 999px;
     font-size: 0.9rem;
+    color: var(--color-texto-etiqueta);
 }
 
 /* ----- Sobre mí ----- */
@@ -311,7 +371,7 @@ h1 {
 .habilidad:hover {
     transform: scale(1.04);
     box-shadow: var(--sombra-fuerte);
-    background-color: #f1ecfb;
+    background-color: var(--color-hover);
 }
 
 .habilidad h3 {
@@ -344,6 +404,26 @@ h1 {
     font-size: 0.8rem;
 }
 
+/* ----- Modo oscuro (clase "oscuro" en el body, activada con JS) ----- */
+body.oscuro {
+    --color-primario: #b79df0;
+    --color-primario-claro: #4a3a78;
+    --color-texto: #e8e6f2;
+    --color-texto-suave: #a5a3ba;
+    --color-fondo: #14121c;
+    --color-tarjeta: #1f1c2c;
+    --color-borde: #34304a;
+    --color-hover: #2a2640;
+    --color-texto-etiqueta: #e8e6f2;
+    --color-texto-boton: #14121c;
+    --sombra: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --sombra-fuerte: 0 12px 28px rgba(0, 0, 0, 0.7);
+}
+
+body.oscuro .slider::before {
+    background-color: #14121c;
+}
+
 /* ----- Responsive ----- */
 @media (max-width: 800px) {
     .layout {
@@ -372,6 +452,12 @@ h1 {
         display: none;
     }
 
+    .switch {
+        order: -1;
+        align-self: flex-end;
+        margin: 0.75rem 1rem 0;
+    }
+
     .menu {
         flex-direction: column;
         gap: 0;
@@ -381,7 +467,7 @@ h1 {
     .menu a {
         display: block;
         padding: 0.75rem 1rem;
-        border-top: 1px solid #e6e1f2;
+        border-top: 1px solid var(--color-borde);
     }
 
     .cards {
