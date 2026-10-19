@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-label="Ilustración de mercados conectados">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6c4ab6"/><stop offset="1" stop-color="#c0aede"/></linearGradient></defs>
+  <rect width="400" height="220" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-width="3" opacity=".85"><circle cx="200" cy="110" r="22"/><circle cx="90" cy="60" r="12"/><circle cx="310" cy="60" r="12"/><circle cx="90" cy="165" r="12"/><circle cx="310" cy="165" r="12"/><path d="M178 100L100 66M222 100L300 66M178 120L100 160M222 120L300 160"/></g>
+</svg>

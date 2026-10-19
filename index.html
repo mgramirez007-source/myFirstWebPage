@@ -17,6 +17,7 @@
             <ul class="menu">
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#educacion">Educación</a></li>
                 <li><a href="#contacto">Contacto</a></li>
@@ -24,11 +25,23 @@
         </nav>
     </header>
 
+    <div class="layout">
+
+    <!-- ===== BARRA LATERAL ===== -->
+    <aside class="sidebar" aria-label="Resumen">
+        <h2>De un vistazo</h2>
+        <ul>
+            <li><strong>Puesto:</strong> Senior Backend Developer</li>
+            <li><strong>Experiencia:</strong> +15 años</li>
+            <li><strong>Especialidad:</strong> Microservicios en la nube</li>
+            <li><strong>Correo:</strong> <a href="mailto:lupnor5@gmail.com">lupnor5@gmail.com</a></li>
+        </ul>
+    </aside>
+
     <main>
 
         <!-- ===== PRESENTACIÓN ===== -->
         <section id="inicio" class="presentacion">
-            <img src="img/avatar.svg" alt="Avatar ilustrado de Guadalupe" class="avatar" width="180" height="180">
             <p class="saludo">¡Hola! Soy</p>
             <h1>María Guadalupe Ramírez Cruz</h1>
             <p class="puesto">Senior Backend Developer</p>
@@ -39,6 +52,9 @@
         <!-- ===== SOBRE MÍ ===== -->
         <section id="sobre-mi">
             <h2>Sobre mí</h2>
+            <div class="sobre-mi-contenido">
+            <img src="img/avatar.svg" alt="Avatar ilustrado de Guadalupe" class="avatar" width="180" height="180">
+            <div class="texto">
             <p>
                 Soy desarrolladora backend con <strong>más de quince años</strong> de experiencia escribiendo
                 código de producción para el lado del servidor de aplicaciones web. Me especializo en
@@ -49,6 +65,8 @@
                 He trabajado en fintech, viajes, telecomunicaciones y análisis de datos, colaborando con
                 equipos de México, Latinoamérica, Asia y Estados Unidos.
             </p>
+            </div>
+            </div>
         </section>
 
         <!-- ===== EXPERIENCIA ===== -->
@@ -114,48 +132,80 @@
             </article>
         </section>
 
-        <!-- ===== HABILIDADES ===== -->
-        <section id="habilidades">
-            <h2>Habilidades técnicas</h2>
+        <!-- ===== PROYECTOS ===== -->
+        <section id="proyectos" class="seccion">
+            <h2>Proyectos destacados</h2>
+            <div class="cards">
+                <div class="proyecto-card tarjeta-1">
+                    <img src="img/proyecto-tala.svg" alt="Ilustración de mercados conectados">
+                    <h3>Plataforma de préstamos Tala</h3>
+                    <p>Lanzamientos a producción en 9 mercados y un servicio unificado de historial de llamadas con enrutamiento por mercado.</p>
+                </div>
+                <div class="proyecto-card tarjeta-2">
+                    <img src="img/proyecto-altruist.svg" alt="Ilustración de dos perfiles conectados">
+                    <h3>Altruist Match</h3>
+                    <p>Módulo que conecta clientes con asesores financieros, junto con un flujo de apertura de cuentas basado en el patrón saga.</p>
+                </div>
+                <div class="proyecto-card tarjeta-3">
+                    <img src="img/proyecto-grafos.svg" alt="Ilustración de una base de datos de grafos">
+                    <h3>XYNPM</h3>
+                    <p>Plataforma desarrollada desde cero para monitorear consumo y facturación de proveedores sobre una base de datos de grafos.</p>
+                </div>
+            </div>
+        </section>
 
-            <h3>Lenguajes</h3>
-            <ul class="etiquetas">
+        <!-- ===== HABILIDADES ===== -->
+        <section id="habilidades" class="seccion">
+            <h2>Habilidades técnicas</h2>
+            <div class="habilidades-grid">
+
+            <div class="habilidad">
+                <h3>Lenguajes</h3>
+                <ul class="etiquetas">
                 <li>Java</li>
                 <li>Python</li>
                 <li>Kotlin</li>
                 <li>JavaScript</li>
                 <li>TypeScript</li>
                 <li>Groovy</li>
-            </ul>
+                </ul>
+            </div>
 
-            <h3>Frameworks</h3>
-            <ul class="etiquetas">
+            <div class="habilidad">
+                <h3>Frameworks</h3>
+                <ul class="etiquetas">
                 <li>Spring</li>
                 <li>Spring Boot</li>
                 <li>Ktor</li>
-            </ul>
+                </ul>
+            </div>
 
-            <h3>Bases de datos</h3>
-            <ul class="etiquetas">
+            <div class="habilidad">
+                <h3>Bases de datos</h3>
+                <ul class="etiquetas">
                 <li>PostgreSQL</li>
                 <li>Oracle</li>
                 <li>MySQL</li>
                 <li>JanusGraph</li>
                 <li>Neo4j</li>
-            </ul>
+                </ul>
+            </div>
 
-            <h3>Nube, streaming y DevOps</h3>
-            <ul class="etiquetas">
+            <div class="habilidad">
+                <h3>Nube, streaming y DevOps</h3>
+                <ul class="etiquetas">
                 <li>Apache Kafka</li>
                 <li>ActiveMQ</li>
                 <li>Docker</li>
                 <li>Kubernetes</li>
                 <li>Jenkins</li>
                 <li>GitLab CI</li>
-            </ul>
+                </ul>
+            </div>
 
-            <h3>Pruebas y observabilidad</h3>
-            <ul class="etiquetas">
+            <div class="habilidad">
+                <h3>Pruebas y observabilidad</h3>
+                <ul class="etiquetas">
                 <li>JUnit</li>
                 <li>Spock</li>
                 <li>Kotest</li>
@@ -163,7 +213,9 @@
                 <li>OpenTelemetry</li>
                 <li>Datadog</li>
                 <li>Grafana</li>
-            </ul>
+                </ul>
+            </div>
+            </div>
         </section>
 
         <!-- ===== EDUCACIÓN ===== -->
@@ -192,6 +244,8 @@
         </section>
 
     </main>
+
+    </div>
 
     <!-- ===== PIE DE PÁGINA ===== -->
     <footer class="pie">

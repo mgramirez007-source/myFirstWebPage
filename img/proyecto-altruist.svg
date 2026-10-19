@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-label="Ilustración de dos perfiles conectados">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b6fb6"/><stop offset="1" stop-color="#a8c8ee"/></linearGradient></defs>
+  <rect width="400" height="220" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-width="3" opacity=".85"><circle cx="130" cy="90" r="26"/><path d="M85 170c0-30 20-44 45-44s45 14 45 44"/><circle cx="270" cy="90" r="26"/><path d="M225 170c0-30 20-44 45-44s45 14 45 44"/><path d="M165 60q35-30 70 0" /></g>
+</svg>
