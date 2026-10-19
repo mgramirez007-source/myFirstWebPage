@@ -6,13 +6,15 @@
     <meta name="description" content="Perfil profesional de María Guadalupe Ramírez Cruz, Senior Backend Developer con más de 15 años de experiencia en microservicios y la nube.">
     <meta name="author" content="María Guadalupe Ramírez Cruz">
     <title>María Guadalupe Ramírez Cruz | Senior Backend Developer</title>
+    <!-- AOS: animaciones al hacer scroll (1/3: CSS) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- ===== ENCABEZADO Y NAVEGACIÓN ===== -->
     <header class="encabezado">
-        <nav class="navegacion" aria-label="Navegación principal">
+        <nav class="navegacion" aria-label="Navegación principal" data-aos="fade-down" data-aos-duration="800">
             <a href="#inicio" class="logo">&lt;Lupita /&gt;</a>
             <ul class="menu">
                 <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -56,10 +58,10 @@
 
         <!-- ===== SOBRE MÍ ===== -->
         <section id="sobre-mi">
-            <h2>Sobre mí</h2>
+            <h2 data-aos="fade-right">Sobre mí</h2>
             <div class="sobre-mi-contenido">
-            <img src="img/avatar.svg" alt="Avatar ilustrado de Guadalupe" class="avatar" width="180" height="180">
-            <div class="texto">
+            <img src="img/avatar.svg" alt="Avatar ilustrado de Guadalupe" class="avatar" width="180" height="180" data-aos="zoom-in" data-aos-delay="100">
+            <div class="texto" data-aos="fade-left" data-aos-delay="200">
             <p>
                 Soy desarrolladora backend con <strong>más de quince años</strong> de experiencia escribiendo
                 código de producción para el lado del servidor de aplicaciones web. Me especializo en
@@ -70,6 +72,13 @@
                 He trabajado en fintech, viajes, telecomunicaciones y análisis de datos, colaborando con
                 equipos de México, Latinoamérica, Asia y Estados Unidos.
             </p>
+
+            <!-- Ejercicio 4 (DOM): mostrar/ocultar y cambiar mensaje -->
+            <p id="dato-curioso" class="dato-curioso">Dato curioso: mi primer programa lo escribí antes de terminar la universidad.</p>
+            <div class="acciones">
+                <button type="button" id="btn-mostrar" class="boton-accion">Mostrar/Ocultar</button>
+                <button type="button" id="btn-mensaje" class="boton-accion">Cambiar mensaje</button>
+            </div>
             </div>
             </div>
         </section>
@@ -139,8 +148,8 @@
 
         <!-- ===== PROYECTOS ===== -->
         <section id="proyectos" class="seccion">
-            <h2>Proyectos destacados</h2>
-            <div class="cards">
+            <h2 data-aos="fade-right">Proyectos destacados</h2>
+            <div class="cards" data-aos="fade-up" data-aos-delay="100">
                 <div class="proyecto-card tarjeta-1">
                     <img src="img/proyecto-tala.svg" alt="Ilustración de mercados conectados">
                     <h3>Plataforma de préstamos Tala</h3>
@@ -161,8 +170,8 @@
 
         <!-- ===== HABILIDADES ===== -->
         <section id="habilidades" class="seccion">
-            <h2>Habilidades técnicas</h2>
-            <div class="habilidades-grid">
+            <h2 data-aos="fade-right">Habilidades técnicas</h2>
+            <div class="habilidades-grid" data-aos="fade-up" data-aos-delay="100">
 
             <div class="habilidad">
                 <h3>Lenguajes</h3>
@@ -246,6 +255,12 @@
                 <li>Correo: <a href="mailto:lupnor5@gmail.com">lupnor5@gmail.com</a></li>
                 <li>LinkedIn: <a href="https://www.linkedin.com/in/maría-guadalupe-ramírez-cruz-36676013" target="_blank" rel="noopener">María Guadalupe Ramírez Cruz</a></li>
             </ul>
+
+            <!-- Contador de clics -->
+            <div class="contador">
+                <h2 id="contador">0</h2>
+                <button type="button" id="btn-contador" class="boton-accion">👍 Me gusta tu perfil</button>
+            </div>
         </section>
 
     </main>
@@ -258,6 +273,18 @@
         <p class="creditos">Avatar: <a href="https://www.dicebear.com/styles/notionists/" target="_blank" rel="noopener">Notionists de DiceBear</a> (CC0)</p>
     </footer>
 
+    <!-- AOS (2/3: JS) -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
+    <!-- AOS (3/3: inicialización) -->
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            disable: function () {
+                return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            }
+        });
+    </script>
 </body>
 </html>
