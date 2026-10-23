@@ -6,29 +6,40 @@
     <meta name="description" content="Perfil profesional de María Guadalupe Ramírez Cruz, Senior Backend Developer con más de 15 años de experiencia en microservicios y la nube.">
     <meta name="author" content="María Guadalupe Ramírez Cruz">
     <title>María Guadalupe Ramírez Cruz | Senior Backend Developer</title>
+    <!-- Fase 5: Bootstrap 5 (CSS). Va antes de style.css para que mis estilos tengan prioridad -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <!-- AOS: animaciones al hacer scroll (1/3: CSS) -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<!-- Fase 5: Scrollspy de Bootstrap resalta en el menú la sección que se está viendo -->
+<body data-bs-spy="scroll" data-bs-target="#menu-principal" data-bs-root-margin="-20% 0px -70% 0px" tabindex="0">
 
-    <!-- ===== ENCABEZADO Y NAVEGACIÓN ===== -->
-    <header class="encabezado">
-        <nav class="navegacion" aria-label="Navegación principal" data-aos="fade-down" data-aos-duration="800">
-            <a href="#inicio" class="logo">&lt;Lupita /&gt;</a>
-            <ul class="menu">
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#experiencia">Experiencia</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#educacion">Educación</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+    <!-- ===== ENCABEZADO Y NAVEGACIÓN (Fase 5: Navbar responsive de Bootstrap) ===== -->
+    <header class="encabezado sticky-top">
+        <nav id="menu-principal" class="navbar navbar-expand-md navegacion" aria-label="Navegación principal">
+            <a href="#inicio" class="navbar-brand logo">&lt;Lupita /&gt;</a>
+
+            <div class="collapse navbar-collapse order-last order-md-0" id="menu-colapsable">
+                <ul class="navbar-nav menu ms-md-auto me-md-3">
+                    <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#educacion">Educación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
             <!-- Toggle Switch de modo claro/oscuro -->
-            <label class="switch" title="Cambiar entre modo claro y oscuro">
+            <label class="switch ms-auto ms-md-0" title="Cambiar entre modo claro y oscuro">
                 <input type="checkbox" id="btn-tema" aria-label="Activar modo oscuro">
                 <span class="slider round"></span>
             </label>
+
+            <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#menu-colapsable" aria-controls="menu-colapsable" aria-expanded="false" aria-label="Mostrar u ocultar el menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </nav>
     </header>
 
@@ -83,67 +94,113 @@
             </div>
         </section>
 
-        <!-- ===== EXPERIENCIA ===== -->
+        <!-- ===== EXPERIENCIA (Fase 5: Accordion de Bootstrap) ===== -->
         <section id="experiencia">
             <h2>Experiencia</h2>
 
-            <article class="trabajo">
-                <h3>Distillery / Tala</h3>
-                <p class="fecha"><time datetime="2025-05">Mayo 2025</time> – Actual</p>
-                <p>Ingeniera backend en la plataforma de préstamos y cobranza de Tala.</p>
-                <ul>
-                    <li>Lideré lanzamientos a producción en <strong>9 mercados</strong>: Argentina, Vietnam, India, México, Guatemala, República Dominicana, Panamá, Kenia y Filipinas.</li>
-                    <li>Resolví una condición de carrera en producción entre consumidores de Kafka y Redisson durante el apagado de pods en Kubernetes.</li>
-                    <li>Diseñé un servicio unificado de historial de llamadas con enrutamiento por mercado.</li>
-                    <li>Entrevisté a más de 25 candidatos.</li>
-                </ul>
-            </article>
+            <div class="accordion" id="acordeon-experiencia">
 
-            <article class="trabajo">
-                <h3>Distillery / Rocket Travel by Agoda</h3>
-                <p class="fecha"><time datetime="2023-10">Octubre 2023</time> – <time datetime="2025-05">Mayo 2025</time></p>
-                <ul>
-                    <li>Desarrollé una API de recomendaciones de hoteles basada en preferencias e historial de reservas.</li>
-                    <li>Implementé la generación y canje de códigos promocionales.</li>
-                    <li>Integré Cybersource para autocompletar el formulario de pago.</li>
-                </ul>
-            </article>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#exp-1" aria-expanded="true" aria-controls="exp-1">
+                            <span>Distillery / Tala <small class="fecha d-block"><time datetime="2025-05">Mayo 2025</time> – Actual</small></span>
+                        </button>
+                    </h3>
+                    <div id="exp-1" class="accordion-collapse collapse show" data-bs-parent="#acordeon-experiencia">
+                        <div class="accordion-body">
+                            <p>Ingeniera backend en la plataforma de préstamos y cobranza de Tala.</p>
+                            <ul>
+                                <li>Lideré lanzamientos a producción en <strong>9 mercados</strong>: Argentina, Vietnam, India, México, Guatemala, República Dominicana, Panamá, Kenia y Filipinas.</li>
+                                <li>Resolví una condición de carrera en producción entre consumidores de Kafka y Redisson durante el apagado de pods en Kubernetes.</li>
+                                <li>Diseñé un servicio unificado de historial de llamadas con enrutamiento por mercado.</li>
+                                <li>Entrevisté a más de 25 candidatos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <article class="trabajo">
-                <h3>Distillery / Altruist</h3>
-                <p class="fecha"><time datetime="2021-12">Diciembre 2021</time> – <time datetime="2022-07">Julio 2022</time></p>
-                <ul>
-                    <li>Mejoré el flujo de apertura de cuentas usando el patrón <em>saga</em>.</li>
-                    <li>Creé el módulo <em>Altruist Match</em> para conectar clientes con asesores financieros.</li>
-                    <li>Agregué observabilidad con OpenTelemetry y métricas personalizadas.</li>
-                </ul>
-            </article>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exp-2" aria-expanded="false" aria-controls="exp-2">
+                            <span>Distillery / Rocket Travel by Agoda <small class="fecha d-block"><time datetime="2023-10">Octubre 2023</time> – <time datetime="2025-05">Mayo 2025</time></small></span>
+                        </button>
+                    </h3>
+                    <div id="exp-2" class="accordion-collapse collapse" data-bs-parent="#acordeon-experiencia">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Desarrollé una API de recomendaciones de hoteles basada en preferencias e historial de reservas.</li>
+                                <li>Implementé la generación y canje de códigos promocionales.</li>
+                                <li>Integré Cybersource para autocompletar el formulario de pago.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <article class="trabajo">
-                <h3>Sonatafy / Semantic AI</h3>
-                <p class="fecha"><time datetime="2018-08">Agosto 2018</time> – <time datetime="2021-12">Diciembre 2021</time></p>
-                <ul>
-                    <li>Optimicé el rendimiento de Cortex EIP, una aplicación ETL para análisis de grafos.</li>
-                    <li>Migré la base de datos de PostgreSQL a Greenplum.</li>
-                    <li>Construí un módulo de <em>geo clustering</em> y un ETL de PostgreSQL a JanusGraph con Kafka Connect.</li>
-                </ul>
-            </article>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exp-3" aria-expanded="false" aria-controls="exp-3">
+                            <span>Distillery / Altruist <small class="fecha d-block"><time datetime="2021-12">Diciembre 2021</time> – <time datetime="2022-07">Julio 2022</time></small></span>
+                        </button>
+                    </h3>
+                    <div id="exp-3" class="accordion-collapse collapse" data-bs-parent="#acordeon-experiencia">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Mejoré el flujo de apertura de cuentas usando el patrón <em>saga</em>.</li>
+                                <li>Creé el módulo <em>Altruist Match</em> para conectar clientes con asesores financieros.</li>
+                                <li>Agregué observabilidad con OpenTelemetry y métricas personalizadas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <article class="trabajo">
-                <h3>Xynergia</h3>
-                <p class="fecha"><time datetime="2017-06">Junio 2017</time> – <time datetime="2018-05">Mayo 2018</time></p>
-                <ul>
-                    <li>Desarrollé desde cero XYNPM, una plataforma para monitorear consumo y facturación de proveedores, basada en una base de datos de grafos.</li>
-                </ul>
-            </article>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exp-4" aria-expanded="false" aria-controls="exp-4">
+                            <span>Sonatafy / Semantic AI <small class="fecha d-block"><time datetime="2018-08">Agosto 2018</time> – <time datetime="2021-12">Diciembre 2021</time></small></span>
+                        </button>
+                    </h3>
+                    <div id="exp-4" class="accordion-collapse collapse" data-bs-parent="#acordeon-experiencia">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Optimicé el rendimiento de Cortex EIP, una aplicación ETL para análisis de grafos.</li>
+                                <li>Migré la base de datos de PostgreSQL a Greenplum.</li>
+                                <li>Construí un módulo de <em>geo clustering</em> y un ETL de PostgreSQL a JanusGraph con Kafka Connect.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <article class="trabajo">
-                <h3>HITSS / Telcel</h3>
-                <p class="fecha"><time datetime="2015-12">Diciembre 2015</time> – <time datetime="2016-12">Diciembre 2016</time></p>
-                <ul>
-                    <li>Lideré el proyecto EVAINI 2.0 para la evaluación y reclutamiento de asesores, entregado en seis meses.</li>
-                </ul>
-            </article>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exp-5" aria-expanded="false" aria-controls="exp-5">
+                            <span>Xynergia <small class="fecha d-block"><time datetime="2017-06">Junio 2017</time> – <time datetime="2018-05">Mayo 2018</time></small></span>
+                        </button>
+                    </h3>
+                    <div id="exp-5" class="accordion-collapse collapse" data-bs-parent="#acordeon-experiencia">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Desarrollé desde cero XYNPM, una plataforma para monitorear consumo y facturación de proveedores, basada en una base de datos de grafos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exp-6" aria-expanded="false" aria-controls="exp-6">
+                            <span>HITSS / Telcel <small class="fecha d-block"><time datetime="2015-12">Diciembre 2015</time> – <time datetime="2016-12">Diciembre 2016</time></small></span>
+                        </button>
+                    </h3>
+                    <div id="exp-6" class="accordion-collapse collapse" data-bs-parent="#acordeon-experiencia">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Lideré el proyecto EVAINI 2.0 para la evaluación y reclutamiento de asesores, entregado en seis meses.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <!-- ===== PROYECTOS ===== -->
@@ -154,16 +211,31 @@
                     <img src="img/proyecto-tala.svg" alt="Ilustración de mercados conectados">
                     <h3>Plataforma de préstamos Tala</h3>
                     <p>Lanzamientos a producción en 9 mercados y un servicio unificado de historial de llamadas con enrutamiento por mercado.</p>
+                    <button type="button" class="btn-detalle" data-bs-toggle="modal" data-bs-target="#modal-proyecto"
+                        data-titulo="Plataforma de préstamos Tala"
+                        data-descripcion="Plataforma de préstamos y cobranza que opera en varios países."
+                        data-puntos="Lanzamientos a producción en 9 mercados|Servicio unificado de historial de llamadas con enrutamiento por mercado|Corrección de una condición de carrera entre consumidores de Kafka y Redisson en el apagado de pods"
+                        data-tecnologias="Kafka,Redisson,Kubernetes">Ver detalles</button>
                 </div>
                 <div class="proyecto-card tarjeta-2">
                     <img src="img/proyecto-altruist.svg" alt="Ilustración de dos perfiles conectados">
                     <h3>Altruist Match</h3>
                     <p>Módulo que conecta clientes con asesores financieros, junto con un flujo de apertura de cuentas basado en el patrón saga.</p>
+                    <button type="button" class="btn-detalle" data-bs-toggle="modal" data-bs-target="#modal-proyecto"
+                        data-titulo="Altruist Match"
+                        data-descripcion="Módulo para conectar clientes con asesores financieros dentro de Altruist."
+                        data-puntos="Flujo de apertura de cuentas mejorado con el patrón saga|Módulo Altruist Match|Observabilidad con OpenTelemetry y métricas personalizadas"
+                        data-tecnologias="Patrón saga,OpenTelemetry">Ver detalles</button>
                 </div>
                 <div class="proyecto-card tarjeta-3">
                     <img src="img/proyecto-grafos.svg" alt="Ilustración de una base de datos de grafos">
                     <h3>XYNPM</h3>
                     <p>Plataforma desarrollada desde cero para monitorear consumo y facturación de proveedores sobre una base de datos de grafos.</p>
+                    <button type="button" class="btn-detalle" data-bs-toggle="modal" data-bs-target="#modal-proyecto"
+                        data-titulo="XYNPM"
+                        data-descripcion="Plataforma construida desde cero en Xynergia para monitorear consumo y facturación de proveedores."
+                        data-puntos="Desarrollo completo desde cero|Basada en una base de datos de grafos|Monitoreo de consumo y facturación de proveedores"
+                        data-tecnologias="Bases de datos de grafos">Ver detalles</button>
                 </div>
             </div>
         </section>
@@ -255,6 +327,7 @@
                 <li>Correo: <a href="mailto:lupnor5@gmail.com">lupnor5@gmail.com</a></li>
                 <li>LinkedIn: <a href="https://www.linkedin.com/in/maría-guadalupe-ramírez-cruz-36676013" target="_blank" rel="noopener">María Guadalupe Ramírez Cruz</a></li>
             </ul>
+            <button type="button" id="btn-copiar" class="boton-accion">📋 Copiar correo</button>
 
             <!-- Contador de clics -->
             <div class="contador">
@@ -269,10 +342,43 @@
 
     <!-- ===== PIE DE PÁGINA ===== -->
     <footer class="pie">
-        <p>&copy; 2026 María Guadalupe Ramírez Cruz · Hecho a mano con HTML y CSS</p>
+        <p>&copy; 2026 María Guadalupe Ramírez Cruz · Hecho con HTML, CSS, JavaScript y Bootstrap</p>
         <p class="creditos">Avatar: <a href="https://www.dicebear.com/styles/notionists/" target="_blank" rel="noopener">Notionists de DiceBear</a> (CC0)</p>
     </footer>
 
+    <!-- Fase 5: Modal de Bootstrap (se llena con JS según el proyecto elegido) -->
+    <div class="modal fade" id="modal-proyecto" tabindex="-1" aria-labelledby="modal-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modal-titulo"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-descripcion"></p>
+                    <ul id="modal-puntos"></ul>
+                    <p class="mb-1"><strong>Tecnologías:</strong></p>
+                    <ul class="etiquetas" id="modal-tecnologias"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="boton-accion" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fase 5: Toast de Bootstrap (avisos breves) -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast-aviso" class="toast" role="status" aria-live="polite" aria-atomic="true" data-bs-delay="2500">
+            <div class="d-flex">
+                <div class="toast-body" id="toast-mensaje"></div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fase 5: Bootstrap (JS con Popper incluido) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS (2/3: JS) -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>

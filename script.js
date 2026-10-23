@@ -11,6 +11,10 @@ const body = document.body;
 function aplicarTema(oscuro) {
     body.classList.toggle("oscuro", oscuro);
     btnTema.checked = oscuro;
+    // Fase 5: también le avisa a Bootstrap para que sus componentes cambien de tema
+    const temaBootstrap = oscuro ? "dark" : "light";
+    document.documentElement.setAttribute("data-bs-theme", temaBootstrap);
+    document.querySelector(".navbar").setAttribute("data-bs-theme", temaBootstrap);
 }
 
 // Al cargar: usa la preferencia guardada; si no hay, la del sistema operativo
@@ -58,6 +62,9 @@ let clics = 0;
 btnContador.addEventListener("click", function () {
     clics++;
     contador.textContent = clics;
+    if (clics % 5 === 0) {
+        mostrarAviso(`¡Gracias! Ya van ${clics} likes 💜`);
+    }
 });
 
 // Ejercicio 4 (DOM): mostrar/ocultar y cambiar mensaje del párrafo
@@ -74,4 +81,55 @@ btnMostrar.addEventListener("click", function () {
 btnMensaje.addEventListener("click", function () {
     datoCurioso.textContent =
         datoCurioso.textContent === mensajeOriginal ? mensajeAlterno : mensajeOriginal;
+});
+
+// ==========================================================
+// Fase 5: componentes de Bootstrap (Toast, Modal)
+// ==========================================================
+
+// Toast: aviso breve en la esquina inferior derecha
+const toastAviso = document.getElementById("toast-aviso");
+const toastMensaje = document.getElementById("toast-mensaje");
+
+function mostrarAviso(mensaje) {
+    toastMensaje.textContent = mensaje;
+    bootstrap.Toast.getOrCreateInstance(toastAviso).show();
+}
+
+// Botón que copia el correo al portapapeles y avisa con un Toast
+const btnCopiar = document.getElementById("btn-copiar");
+
+btnCopiar.addEventListener("click", async function () {
+    try {
+        await navigator.clipboard.writeText("lupnor5@gmail.com");
+        mostrarAviso("Correo copiado al portapapeles ✅");
+    } catch (e) {
+        mostrarAviso("No se pudo copiar. Cópialo a mano: lupnor5@gmail.com");
+    }
+});
+
+// Modal: llena el contenido con los data-* del botón que lo abrió
+const modalProyecto = document.getElementById("modal-proyecto");
+
+modalProyecto.addEventListener("show.bs.modal", function (evento) {
+    const boton = evento.relatedTarget;
+    document.getElementById("modal-titulo").textContent = boton.dataset.titulo;
+    document.getElementById("modal-descripcion").textContent = boton.dataset.descripcion;
+
+    // Las listas se vacían y se vuelven a construir en cada apertura
+    const puntos = document.getElementById("modal-puntos");
+    const tecnologias = document.getElementById("modal-tecnologias");
+    puntos.replaceChildren();
+    tecnologias.replaceChildren();
+
+    boton.dataset.puntos.split("|").forEach(function (texto) {
+        const li = document.createElement("li");
+        li.textContent = texto;
+        puntos.appendChild(li);
+    });
+    boton.dataset.tecnologias.split(",").forEach(function (texto) {
+        const li = document.createElement("li");
+        li.textContent = texto;
+        tecnologias.appendChild(li);
+    });
 });
